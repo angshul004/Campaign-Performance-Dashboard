@@ -1,6 +1,11 @@
 # Marketing Campaign Performance Dashboard
 
 A small Flask web application to manage and analyze marketing campaign performance using manually entered data.
+## Screenshots
+<img width="1919" height="853" alt="image" src="https://github.com/user-attachments/assets/e674d408-7802-4103-b17f-7820fdc024d0" />
+<img width="1902" height="856" alt="image" src="https://github.com/user-attachments/assets/5a5b252c-3790-4fcc-ab4a-3dd294ea0e1b" />
+
+
 
 ## Overview
 This project provides a simple business dashboard for tracking campaign outcomes across platforms (such as Google, Instagram, and Email).
@@ -21,21 +26,21 @@ Core capabilities:
 ```text
 marketing analysis project/
 +-- app/
-¦   +-- static/
-¦   ¦   +-- css/
-¦   ¦       +-- style.css
-¦   +-- templates/
-¦   ¦   +-- add_campaign.html
-¦   ¦   +-- base.html
-¦   ¦   +-- campaigns.html
-¦   ¦   +-- dashboard.html
-¦   ¦   +-- home.html
-¦   +-- __init__.py
-¦   +-- extensions.py
-¦   +-- models.py
-¦   +-- routes.py
+Â¦   +-- static/
+Â¦   Â¦   +-- css/
+Â¦   Â¦       +-- style.css
+Â¦   +-- templates/
+Â¦   Â¦   +-- add_campaign.html
+Â¦   Â¦   +-- base.html
+Â¦   Â¦   +-- campaigns.html
+Â¦   Â¦   +-- dashboard.html
+Â¦   Â¦   +-- home.html
+Â¦   +-- __init__.py
+Â¦   +-- extensions.py
+Â¦   +-- models.py
+Â¦   +-- routes.py
 +-- instance/
-¦   +-- marketing.db
+Â¦   +-- marketing.db
 +-- config.py
 +-- requirements.txt
 +-- run.py
@@ -108,9 +113,6 @@ Visit:
 1. Go to `/add` and enter campaign data.
 2. Open `/campaigns` to review saved records.
 3. Open `/dashboard` to view KPI cards and charts.
-
-## Screenshots
-Add screenshots here later.
 
 Example placeholders:
 - Home page
