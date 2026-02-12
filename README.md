@@ -78,7 +78,7 @@ Fields:
 ## Setup Instructions
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/angshul004/Campaign-Performance-Dashboard
 cd "marketing analysis project"
 ```
 
