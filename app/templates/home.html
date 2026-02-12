@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h2>Campaign Summary</h2>
+<section class="kpi-grid">
+    <div class="kpi-card">
+        <h3>Total Campaigns</h3>
+        <p>{{ total_campaigns }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Total Leads</h3>
+        <p>{{ total_leads }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Total Conversions</h3>
+        <p>{{ total_conversions }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Top Platform</h3>
+        <p>{{ top_platform }}</p>
+    </div>
+</section>
+
+<h3>Recent Campaigns</h3>
+{% if recent_campaigns %}
+<table>
+    <thead>
+        <tr>
+            <th>Campaign Name</th>
+            <th>Platform</th>
+            <th>Budget</th>
+            <th>Leads</th>
+            <th>Conversions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campaign in recent_campaigns %}
+        <tr>
+            <td>{{ campaign.campaign_name }}</td>
+            <td>{{ campaign.platform }}</td>
+            <td>${{ "%.2f"|format(campaign.budget) }}</td>
+            <td>{{ campaign.leads }}</td>
+            <td>{{ campaign.conversions }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No campaigns available yet. Add a campaign to start tracking performance.</p>
+{% endif %}
+{% endblock %}

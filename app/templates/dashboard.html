@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+<section class="kpi-grid">
+    <div class="kpi-card">
+        <h3>Total Campaigns</h3>
+        <p>{{ total_campaigns }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Total Leads</h3>
+        <p>{{ total_leads }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Total Conversions</h3>
+        <p>{{ total_conversions }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Conversion Rate</h3>
+        <p>{{ "%.2f"|format(conversion_rate) }}%</p>
+    </div>
+</section>
+
+<section class="chart-grid">
+    <div class="chart-card">
+        <h3>Clicks vs Conversions</h3>
+        <div class="chart-wrap">
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+    <div class="chart-card">
+        <h3>Platform-wise Performance (Conversions)</h3>
+        <div class="chart-wrap">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const campaignLabels = {{ campaign_labels|tojson }};
+    const clicksData = {{ clicks_data|tojson }};
+    const conversionsData = {{ conversions_data|tojson }};
+    const platformLabels = {{ platform_labels|tojson }};
+    const platformData = {{ platform_data|tojson }};
+
+    const barCtx = document.getElementById("barChart");
+    new Chart(barCtx, {
+        type: "bar",
+        data: {
+            labels: campaignLabels,
+            datasets: [
+                {
+                    label: "Clicks",
+                    data: clicksData,
+                    backgroundColor: "#4a90e2"
+                },
+                {
+                    label: "Conversions",
+                    data: conversionsData,
+                    backgroundColor: "#31b57b"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2
+        }
+    });
+
+    const pieCtx = document.getElementById("pieChart");
+    new Chart(pieCtx, {
+        type: "pie",
+        data: {
+            labels: platformLabels,
+            datasets: [
+                {
+                    data: platformData,
+                    backgroundColor: ["#1f4b99", "#31b57b", "#f39c12", "#e74c3c", "#8e44ad"]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 1.6
+        }
+    });
+</script>
+{% endblock %}
