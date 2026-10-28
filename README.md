@@ -124,3 +124,5 @@ Example placeholders:
 - Data is stored locally in SQLite (`instance/marketing.db`).
 - No authentication is included.
 - No external APIs are used.
+
+by Angshul
